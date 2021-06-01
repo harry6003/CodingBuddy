@@ -7,10 +7,10 @@
     "action": {
         "default_popup": "popup.html",
         "default_icon": {
-            "16": "./img/logo.png",
-            "32": "./img/logo.png",
-            "48": "./img/logo.png",
-            "128": "./img/logo.png"
+            "16": "./img/newlogo2.png",
+            "32": "./img/newlogo2.png",
+            "48": "./img/newlogo2.png",
+            "128": "./img/newlogo2.png"
         },
         "default_title": "HELLO I AM A CALENDER"
     },
