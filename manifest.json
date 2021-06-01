@@ -1,0 +1,29 @@
+{
+    "name": "Apna Calender",
+    "description": "Never miss a Coding contest again! Displays live and upcoming Programming Contests happening on a variety of popular platforms.",
+    "version": "1.0.0",
+    "manifest_version": 3,
+
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "./img/logo.png",
+            "32": "./img/logo.png",
+            "48": "./img/logo.png",
+            "128": "./img/logo.png"
+        },
+        "default_title": "HELLO I AM A CALENDER"
+    },
+
+    "icons": {
+        "16": "./img/lockey.png",
+        "32": "./img/lockey.png",
+        "48": "./img/lockey.png",
+        "128": "./img/lockey.png"
+    },
+    "permissions": [
+        "tabs"
+    ]
+
+
+}

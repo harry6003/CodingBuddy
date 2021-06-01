@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-width: 550px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: aqua;
+    padding: 0.8rem 0.8rem 0.5rem 0.8rem;
+}
+
+.rightnav img {
+    margin: 0 0.9rem;
+}
+
+.contestinfo {
+    /* height: 100px; */
+}
+
+.ongoingcontestheader,
+.upcomingcontestheader,
+.subsribeheading {
+    text-align: center;
+    background-color: #1e88e5;
+}
+
+.ongoingcontestheader h2,
+.upcomingcontestheader h2,
+.subsribeheading h2 {
+    padding: 0.5rem;
+    color: white;
+}
+
+.contest_selection h2 {
+    color: black;
+    padding: 0.5rem;
+}
+
+.contest_selection {
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.4rem 2rem;
+}
+
+.settingsofcontest {
+    display: flex;
+    flex-direction: column;
+}
+
+.check {
+    height: 32px;
+}
+
+.check:hover {
+    cursor: pointer;
+}
+
+#contest_image {
+    height: 32px;
+    width: 32px;
+}
+
+.single-contest-detail-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+.single-contest-detail-container:hover {
+    /* color: #1e88e5; */
+    background-color: rgb(178, 199, 255);
+}
+
+.imageofcontestongoing {
+    margin: 0.5rem;
+}
+
+.nameofcontest {
+    min-width: 250px;
+    max-width: 250px;
+}
+
+.startandend {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-right: 10px;
+    justify-content: space-between;
+}
+
+.starttime {
+    margin-right: 10px;
+}
+
+.imageandheading {
+    display: flex;
+    align-items: center;
+}
+
+.contest-logo {
+    height: 32px;
+    width: 32px;
+    margin: 0px 10px;
+    margin-top: 5px;
+}
+
+.time {
+    background-color: black;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: larger;
+}
+
+.linkofcontest {
+    text-decoration: none;
+    color: black;
+}
+
+.extratimestyleofstart {
+    color: rgb(67, 255, 67);
+}
+
+.extratimestyleofend {
+    color: red;
+}
