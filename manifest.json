@@ -1,5 +1,5 @@
 {
-    "name": "Apna Calender",
+    "name": "CodingBuddy",
     "description": "Never miss a Coding contest again! Displays live and upcoming Programming Contests happening on a variety of popular platforms.",
     "version": "1.0.0",
     "manifest_version": 3,
@@ -21,6 +21,7 @@
         "48": "./img/ee.png",
         "128": "./img/ee.png"
     }
+
 
 
 
