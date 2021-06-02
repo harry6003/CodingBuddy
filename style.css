@@ -12,7 +12,7 @@ body {
 nav {
     display: flex;
     justify-content: space-between;
-    background-color: aqua;
+    background-color: #FECD04;
     padding: 0.8rem 0.8rem 0.5rem 0.8rem;
 }
 
@@ -28,14 +28,14 @@ nav {
 .upcomingcontestheader,
 .subsribeheading {
     text-align: center;
-    background-color: #1e88e5;
+    background-color: #019E73;
 }
 
 .ongoingcontestheader h2,
 .upcomingcontestheader h2,
 .subsribeheading h2 {
     padding: 0.5rem;
-    color: white;
+    color: black;
 }
 
 .contest_selection h2 {
@@ -71,7 +71,7 @@ nav {
 
 .single-contest-detail-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     height: 80px;
 }
