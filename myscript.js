@@ -9,6 +9,15 @@ if (localStorage.getItem("CodeChef") === null && localStorage.getItem("CodeForce
     localStorage.setItem("LeetCode", "true");
     localStorage.setItem("HackerRank", "true");
 
+    console.log("all set to true first time");
+    allowed_platforms_by_user = [];
+    for (var i = 0, len = localStorage.length; i < len; ++i) {
+        if (localStorage.getItem(localStorage.key(i)) === "true") {
+            allowed_platforms_by_user.push(localStorage.key(i));
+        }
+    }
+    console.log(allowed_platforms_by_user)
+
 } else {
     allowed_platforms_by_user = [];
     for (var i = 0, len = localStorage.length; i < len; ++i) {
@@ -25,24 +34,20 @@ if (localStorage.getItem("CodeChef") === null && localStorage.getItem("CodeForce
 function getsrcofimg(s) {
     switch (s) {
         case "CodeForces":
-            return "./img/platform-logos/codeforces.png"
+            return "./img/platform-logos/cfmade.png"
         case "LeetCode":
             return "./img/platform-logos/leetcode.png"
         case "HackerEarth":
-            return "./img/platform-logos/hackerearthnew.png"
+            return "./img/platform-logos/hackerearthrbg.png"
         case "CodeChef":
-            return "./img/platform-logos/codechef.png"
+            return "./img/platform-logos/codechefnew.png"
         case "HackerRank":
             return "./img/platform-logos/hackerrank.png"
         case "AtCoder":
-            return "./img/platform-logos/atcoder.png"
+            return "./img/platform-logos/atcoderwhiterbg.png"
     }
 }
 
-// function getcontestduration(d) {
-//     let totoalsec = parseInt(d);
-//     console.log(totoalsec);
-// }
 
 function getcontestduration(seconds) {
     seconds = Number(seconds);
@@ -124,13 +129,13 @@ async function getcontestdetails() {
 
     console.log(data);
     alldataofongoing = data.filter(element => {
-        if (element.status === "CODING" && allowed_platforms_by_user.includes(element.site) && parseInt(element.duration) <= 1296000)
+        if (element.status === "CODING" && allowed_platforms_by_user.includes(element.site) && parseInt(element.duration) <= 2678400)
             return element
     });
     console.log(alldataofongoing)
 
     alldataofupcoming = data.filter(element => {
-        if (element.status === "BEFORE" && allowed_platforms_by_user.includes(element.site) && parseInt(element.duration) <= 1296000)
+        if (element.status === "BEFORE" && allowed_platforms_by_user.includes(element.site) && parseInt(element.duration) <= 2678400)
             return element
     });
     console.log(alldataofupcoming)
@@ -184,7 +189,7 @@ async function getcontestdetails() {
             starttime.setAttribute("class", "starttime");
             let startdate = document.createElement("H4");
             startdate.setAttribute("class", "date");
-            startdate.innerHTML = "Start : " + getdateofstart(alldataofongoing[i].start_time);
+            startdate.innerHTML = getdateofstart(alldataofongoing[i].start_time);
             let timeofstart = document.createElement("P");
             timeofstart.setAttribute("class", "time");
             timeofstart.classList.add("extratimestyleofstart");
@@ -198,7 +203,7 @@ async function getcontestdetails() {
             endtime.setAttribute("class", "endtime");
             let enddate = document.createElement("H4");
             enddate.setAttribute("class", "date");
-            enddate.innerHTML = "End : " + getdateofstart(alldataofongoing[i].end_time);
+            enddate.innerHTML = getdateofstart(alldataofongoing[i].end_time);
             let timeofend = document.createElement("P");
             timeofend.setAttribute("class", "time");
             timeofend.classList.add("extratimestyleofend");
@@ -213,8 +218,8 @@ async function getcontestdetails() {
             outerdiv.appendChild(innerdiv1);
             outerdiv.appendChild(innerdiv2);
             ongoinginfo.appendChild(outerdiv);
-            let hr = document.createElement("HR");
-            ongoinginfo.appendChild(hr);
+            // let hr = document.createElement("HR");
+            // ongoinginfo.appendChild(hr);
         }
     }
 
@@ -249,7 +254,7 @@ async function getcontestdetails() {
         starttime.setAttribute("class", "starttime");
         let startdate = document.createElement("H4");
         startdate.setAttribute("class", "date");
-        startdate.innerHTML = "Start : " + getdateofstart(alldataofupcoming[i].start_time);
+        startdate.innerHTML = getdateofstart(alldataofupcoming[i].start_time);
         let timeofstart = document.createElement("P");
         timeofstart.setAttribute("class", "time");
         timeofstart.classList.add("extratimestyleofstart");
@@ -263,7 +268,7 @@ async function getcontestdetails() {
         endtime.setAttribute("class", "endtime");
         let enddate = document.createElement("H4");
         enddate.setAttribute("class", "date");
-        enddate.innerHTML = "End : " + getdateofstart(alldataofupcoming[i].end_time);
+        enddate.innerHTML = getdateofstart(alldataofupcoming[i].end_time);
         let timeofend = document.createElement("P");
         timeofend.setAttribute("class", "time");
         timeofend.classList.add("extratimestyleofend");
@@ -280,8 +285,8 @@ async function getcontestdetails() {
         outerdiv.appendChild(innerdiv2);
         upcominginfo.appendChild(outerdiv);
 
-        let hr = document.createElement("HR");
-        upcominginfo.appendChild(hr);
+        // let hr = document.createElement("HR");
+        // upcominginfo.appendChild(hr);
     }
 
 }
