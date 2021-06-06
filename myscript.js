@@ -114,31 +114,46 @@ function gettimeofstart(start_time) {
     let utcDate = start_time; // ISO-8601 formatted date returned from server
     let localDate = new Date(utcDate);
     let hours = localDate.getHours();
-    let minutes = localDate.getMinutes() > 0 ? (localDate.getMinutes() > 10 ? localDate.getMinutes() : "0" + localDate.getMinutes()) : "00";
+    let minutes = localDate.getMinutes() > 0 ? (localDate.getMinutes() >= 10 ? localDate.getMinutes() : "0" + localDate.getMinutes()) : "00";
 
     let result = hours + ":" + minutes + ":00";
     return result;
 }
 
 let alldataofongoing = [];
+let ado_not_allowed = [];
+
 let alldataofupcoming = [];
-
+let adu_not_allowed = [];
 async function getcontestdetails() {
-    const response = await fetch(api);
-    const data = await response.json();
 
-    console.log(data);
-    alldataofongoing = data.filter(element => {
-        if (element.status === "CODING" && allowed_platforms_by_user.includes(element.site) && parseInt(element.duration) <= 2678400)
-            return element
-    });
-    console.log(alldataofongoing)
+    if (localStorage.getItem("alldataofongoing") == null && localStorage.getItem("alldataofupcoming") == null) {
+        const response = await fetch(api);
+        const data = await response.json();
 
-    alldataofupcoming = data.filter(element => {
-        if (element.status === "BEFORE" && allowed_platforms_by_user.includes(element.site) && parseInt(element.duration) <= 2678400)
-            return element
-    });
-    console.log(alldataofupcoming)
+        console.log(data);
+        alldataofongoing = data.filter(element => {
+            if (element.status === "CODING" && allowed_platforms_by_user.includes(element.site) && parseInt(element.duration) <= 2678400)
+                return element
+        });
+        console.log(alldataofongoing)
+        localStorage.setItem("alldataofongoing", JSON.stringify(alldataofongoing));
+        localStorage.setItem("ado_not_allowed", JSON.stringify(ado_not_allowed));
+
+        alldataofupcoming = data.filter(element => {
+            if (element.status === "BEFORE" && allowed_platforms_by_user.includes(element.site) && parseInt(element.duration) <= 2678400)
+                return element
+        });
+        console.log(alldataofupcoming)
+        localStorage.setItem("alldataofupcoming", JSON.stringify(alldataofupcoming));
+        localStorage.setItem("adu_not_allowed", JSON.stringify(adu_not_allowed));
+
+
+    } else {
+        alldataofongoing = JSON.parse(localStorage.getItem("alldataofongoing"));
+        alldataofupcoming = JSON.parse(localStorage.getItem("alldataofupcoming"));
+    }
+
 
 
     if (alldataofongoing.length == 0) {
@@ -146,8 +161,11 @@ async function getcontestdetails() {
         let ongoinginfo = document.getElementsByClassName("ongoingcontestinfo")[0];
         let outerdiv = document.createElement("DIV");
         outerdiv.setAttribute("style", "text-align:center")
+        outerdiv.setAttribute("class", "sorrytextdiv")
         let h2 = document.createElement("H2");
         h2.innerHTML = "SORRY ! THERE IS NO CURRENT CONTEST 😶"
+
+        h2.setAttribute("class", "sorrytext");
         outerdiv.appendChild(h2);
         ongoinginfo.appendChild(outerdiv);
 
@@ -288,6 +306,32 @@ async function getcontestdetails() {
         // let hr = document.createElement("HR");
         // upcominginfo.appendChild(hr);
     }
+
+    async function updatecontestdetails() {
+        const updated_response = await fetch(api);
+        const updated_data = await updated_response.json();
+        console.log(updated_data);
+
+        let updated_alldataofongoing = [];
+        let updated_alldataofupcoming = [];
+
+        updated_alldataofongoing = updated_data.filter(element => {
+            if (element.status === "CODING" && allowed_platforms_by_user.includes(element.site) && parseInt(element.duration) <= 2678400)
+                return element
+        });
+
+        console.log(updated_alldataofongoing)
+        localStorage.setItem("alldataofongoing", JSON.stringify(updated_alldataofongoing));
+
+
+        updated_alldataofupcoming = updated_data.filter(element => {
+            if (element.status === "BEFORE" && allowed_platforms_by_user.includes(element.site) && parseInt(element.duration) <= 2678400)
+                return element
+        });
+        console.log(updated_alldataofupcoming)
+        localStorage.setItem("alldataofupcoming", JSON.stringify(updated_alldataofupcoming));
+    }
+    updatecontestdetails();
 
 }
 
