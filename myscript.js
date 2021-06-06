@@ -185,6 +185,7 @@ async function getcontestdetails() {
             innerdiv1.setAttribute("class", "imageandheading");
             let imgofcontest = document.createElement("IMG");
             imgofcontest.setAttribute("src", getsrcofimg(alldataofongoing[i].site));
+            imgofcontest.setAttribute("alt", "contest-image");
             imgofcontest.setAttribute("class", "contest-logo");
             let headingofcontest = document.createElement("H3");
             let linkofcontest = alldataofongoing[i].url;
@@ -251,6 +252,7 @@ async function getcontestdetails() {
         innerdiv1.setAttribute("class", "imageandheading");
         let imgofcontest = document.createElement("IMG");
         imgofcontest.setAttribute("src", getsrcofimg(alldataofupcoming[i].site));
+        imgofcontest.setAttribute("alt", "contest-image");
         imgofcontest.setAttribute("class", "contest-logo");
         let headingofcontest = document.createElement("H3");
         let linkofcontest = alldataofupcoming[i].url;
