@@ -20,21 +20,17 @@ nav {
     top: 0;
     z-index: 100;
     position: fixed;
-    width: 100%;
+    width: 98%;
+    margin: 0 5px 5px 5px;
+    border-radius: 10px;
 }
 
-#homeicon {
-    transition: transform 1s;
-    transform-origin: center;
+.leftnav {
+    display: flex;
 }
 
-#homeicon:hover {
-    -ms-transform: rotate(360deg);
-    transform-origin: center;
-    /* IE 9 */
-    transform: rotate(360deg);
-    transform-origin: center;
-    /* Standard syntax */
+.leftnav a {
+    margin-right: 25px;
 }
 
 #seticon {
@@ -48,15 +44,31 @@ nav {
     /* Standard syntax */
 }
 
-#giticon {
-    transition: transform 1s;
+#giticon:hover {
+    animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
 }
 
-#giticon:hover {
-    -ms-transform: rotate(360deg);
-    /* IE 9 */
-    transform: rotate(360deg);
-    /* Standard syntax */
+@keyframes shake {
+    10%,
+    90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+    20%,
+    80% {
+        transform: translate3d(2px, 0, 0);
+    }
+    30%,
+    50%,
+    70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+    40%,
+    60% {
+        transform: translate3d(4px, 0, 0);
+    }
 }
 
 .rightnav img {
@@ -132,7 +144,7 @@ nav {
 .subsribeheading h2 {
     font-family: 'Poppins', sans-serif;
     color: white;
-    font-weight: bolder;
+    font-weight: 700;
     font-size: x-large;
 }
 
@@ -178,13 +190,18 @@ nav {
     background-color: #303134;
 }
 
+.single-contest-detail-container:hover .calender-logo-div {
+    visibility: visible;
+    background-color: #303134;
+}
+
 .imageofcontestongoing {
     margin: 0.5rem;
 }
 
 .nameofcontest {
-    min-width: 250px;
-    max-width: 250px;
+    min-width: 200px;
+    max-width: 200px;
     color: rgb(232, 234, 237);
 }
 
@@ -192,12 +209,22 @@ nav {
     display: flex;
     align-items: center;
     text-align: center;
-    margin-right: 10px;
+    /* margin-right: 10px; */
     justify-content: space-between;
 }
 
 .starttime {
     margin-right: 10px;
+}
+
+img.calender-logo {
+    padding: 15px 10px 0 10px;
+    width: 45px;
+    height: 45px;
+}
+
+.calender-logo-div {
+    visibility: hidden;
 }
 
 .imageandheading {

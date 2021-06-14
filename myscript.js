@@ -1,6 +1,8 @@
 const api = "https://kontests.net/api/v1/all";
 let allowed_platforms_by_user = [];
 
+
+
 if (localStorage.getItem("CodeChef") === null && localStorage.getItem("CodeForces") === null && localStorage.getItem("AtCoder") === null && localStorage.getItem("HackerEarth") === null && localStorage.getItem("LeetCode") === null && localStorage.getItem("HackerRank") === null) {
     localStorage.setItem("CodeChef", "true");
     localStorage.setItem("CodeForces", "true");
@@ -60,7 +62,7 @@ function getcontestduration(seconds) {
     var hDisplay = h > 0 ? h + (h == 1 ? " hour, " : " hours, ") : "";
     var mDisplay = m > 0 ? m + (m == 1 ? " minute, " : " minutes, ") : "";
     var sDisplay = s > 0 ? s + (s == 1 ? " second" : " seconds") : "";
-    return dDisplay + hDisplay + mDisplay + sDisplay;
+    return dDisplay + hDisplay + mDisplay;
 }
 
 
@@ -85,7 +87,7 @@ function getcontestendtime(endtime) {
 
     let day = weekday[localDate.getDay()];
     let result = "END :   " + day + " " +
-        dt + "/" + month + "/" + year + "   " + hours + ":" + minutes + ":00";
+        dt + "/" + month + "/" + year + "   " + hours + ":" + minutes;
     return result;
 }
 
@@ -116,7 +118,7 @@ function gettimeofstart(start_time) {
     let hours = localDate.getHours();
     let minutes = localDate.getMinutes() > 0 ? (localDate.getMinutes() >= 10 ? localDate.getMinutes() : "0" + localDate.getMinutes()) : "00";
 
-    let result = hours + ":" + minutes + ":00";
+    let result = hours + ":" + minutes;
     return result;
 }
 
@@ -230,8 +232,28 @@ async function getcontestdetails() {
             endtime.appendChild(enddate);
             endtime.appendChild(timeofend);
 
+
+            //  calender
+            let imgofcalenderdiv = document.createElement("DIV");
+            imgofcalenderdiv.setAttribute("class", "calender-logo-div")
+
+            let imgofcalender = document.createElement("IMG");
+            imgofcalender.setAttribute("src", "./img/calender-new.png");
+            imgofcalender.setAttribute("alt", "calender-image");
+            imgofcalender.setAttribute("class", "calender-logo");
+
+            // a
+            let linktogcalender = document.createElement("A");
+            linktogcalender.setAttribute("href", "https://google.com");
+            linktogcalender.setAttribute("target", "_blank");
+            linktogcalender.appendChild(imgofcalender)
+
+            imgofcalenderdiv.appendChild(linktogcalender);
+
+
             innerdiv2.appendChild(starttime);
             innerdiv2.appendChild(endtime);
+            innerdiv2.appendChild(imgofcalenderdiv);
 
             //outerdiv
             outerdiv.appendChild(innerdiv1);
@@ -296,8 +318,27 @@ async function getcontestdetails() {
         endtime.appendChild(enddate);
         endtime.appendChild(timeofend);
 
+
+        //  calender
+        let imgofcalenderdiv = document.createElement("DIV");
+        imgofcalenderdiv.setAttribute("class", "calender-logo-div")
+            // image
+        let imgofcalender = document.createElement("IMG");
+        imgofcalender.setAttribute("src", "./img/calender-new.png");
+        imgofcalender.setAttribute("alt", "calender-image");
+        imgofcalender.setAttribute("class", "calender-logo");
+        // a
+        let linktogcalender = document.createElement("A");
+        linktogcalender.setAttribute("href", "https://google.com");
+        linktogcalender.setAttribute("target", "_blank");
+        linktogcalender.appendChild(imgofcalender)
+
+        imgofcalenderdiv.appendChild(linktogcalender);
+
+
         innerdiv2.appendChild(starttime);
         innerdiv2.appendChild(endtime);
+        innerdiv2.appendChild(imgofcalenderdiv);
 
 
         //outerdiv
