@@ -112,15 +112,59 @@ function getdateofstart(start_time) {
     return res;
 }
 
+function getdateofstartforgcalender(start_time) {
+    let utcDate = start_time;
+    let localDate = new Date(utcDate);
+    let year = localDate.getFullYear();
+    let month = localDate.getMonth() + 1;
+    let dt = localDate.getDate();
+
+    month = month > 9 ? month : "0" + month;
+    // let res = "" + dt + month + year;
+    let res = "" + year + month + dt;
+    return res;
+}
+
 function gettimeofstart(start_time) {
     let utcDate = start_time; // ISO-8601 formatted date returned from server
     let localDate = new Date(utcDate);
-    let hours = localDate.getHours();
+    let hours = localDate.getHours() > 0 ? (localDate.getHours() >= 10 ? localDate.getHours() : "0" + localDate.getHours()) : "00";
     let minutes = localDate.getMinutes() > 0 ? (localDate.getMinutes() >= 10 ? localDate.getMinutes() : "0" + localDate.getMinutes()) : "00";
 
     let result = hours + ":" + minutes;
     return result;
 }
+
+function gettimeofstart_forgcalender(start_time) {
+    let utcDate = start_time; // ISO-8601 formatted date returned from server
+    let localDate = new Date(utcDate);
+    let hours = localDate.getHours();
+    let minutes = localDate.getMinutes() > 0 ? (localDate.getMinutes() >= 10 ? localDate.getMinutes() : "0" + localDate.getMinutes()) : "00";
+
+    let result = "" + hours + minutes + "00";
+    return result;
+}
+
+
+function gcalenderlinkofevent(CNAME, SDATE, STIME, EDATE, ETIME, LINKOFC) {
+
+    // console.log(CNAME);
+    // console.log(SDATE);
+    // console.log(STIME);
+    // console.log(EDATE);
+    // console.log(ETIME);
+    // console.log(LINKOFC);
+    let result = "https://www.google.com/calendar/render?action=TEMPLATE&text=" + CNAME + "&dates=" + SDATE + "T" + STIME + "/" + EDATE + "T" + ETIME + "&location=" + LINKOFC + "&pli=1&uid=&sf=true&output=xml#eventpage_6"
+
+    return result.replace(/#/g, '%23');
+
+    // return `https://www.google.com/calendar/render?action=TEMPLATE&text=${CNAME}&dates=${calendarTime}&location=${this.url}&pli=1&uid=&sf=true&output=xml#eventpage_6`
+}
+
+
+
+
+
 
 let alldataofongoing = [];
 let ado_not_allowed = [];
@@ -244,7 +288,14 @@ async function getcontestdetails() {
 
             // a
             let linktogcalender = document.createElement("A");
-            linktogcalender.setAttribute("href", "https://google.com");
+            linktogcalender.setAttribute("href",
+                gcalenderlinkofevent(
+                    alldataofongoing[i].name,
+                    getdateofstartforgcalender(alldataofongoing[i].start_time),
+                    gettimeofstart_forgcalender(alldataofongoing[i].start_time),
+                    getdateofstartforgcalender(alldataofongoing[i].end_time),
+                    gettimeofstart_forgcalender(alldataofongoing[i].end_time),
+                    linkofcontest));
             linktogcalender.setAttribute("target", "_blank");
             linktogcalender.appendChild(imgofcalender)
 
@@ -329,7 +380,14 @@ async function getcontestdetails() {
         imgofcalender.setAttribute("class", "calender-logo");
         // a
         let linktogcalender = document.createElement("A");
-        linktogcalender.setAttribute("href", "https://google.com");
+        linktogcalender.setAttribute("href",
+            gcalenderlinkofevent(
+                alldataofupcoming[i].name,
+                getdateofstartforgcalender(alldataofupcoming[i].start_time),
+                gettimeofstart_forgcalender(alldataofupcoming[i].start_time),
+                getdateofstartforgcalender(alldataofupcoming[i].end_time),
+                gettimeofstart_forgcalender(alldataofupcoming[i].end_time),
+                linkofcontest));
         linktogcalender.setAttribute("target", "_blank");
         linktogcalender.appendChild(imgofcalender)
 
