@@ -158,7 +158,7 @@ for (var i = 0, len = localStorage.length; i < len; ++i) {
         allowed_platforms_by_user_in_set.push(localStorage.key(i));
     }
 }
-console.log(allowed_platforms_by_user_in_set)
+// console.log(allowed_platforms_by_user_in_set)   TESTING PURPOSE TESTING PURPOSE
 
 // let allcheck = document.getElementsByClassName("check");
 // allcheck.addEventListnner("click",)

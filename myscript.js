@@ -27,7 +27,7 @@ if (localStorage.getItem("CodeChef") === null && localStorage.getItem("CodeForce
             allowed_platforms_by_user.push(localStorage.key(i));
         }
     }
-    console.log(allowed_platforms_by_user)
+    // console.log(allowed_platforms_by_user)  TESTING PURPOSE
 
 
 }
@@ -120,6 +120,7 @@ function getdateofstartforgcalender(start_time) {
     let dt = localDate.getDate();
 
     month = month > 9 ? month : "0" + month;
+    dt = dt > 9 ? dt : "0" + dt;
     // let res = "" + dt + month + year;
     let res = "" + year + month + dt;
     return res;
@@ -138,7 +139,7 @@ function gettimeofstart(start_time) {
 function gettimeofstart_forgcalender(start_time) {
     let utcDate = start_time; // ISO-8601 formatted date returned from server
     let localDate = new Date(utcDate);
-    let hours = localDate.getHours();
+    let hours = localDate.getHours() > 0 ? (localDate.getHours() >= 10 ? localDate.getHours() : "0" + localDate.getHours()) : "00";
     let minutes = localDate.getMinutes() > 0 ? (localDate.getMinutes() >= 10 ? localDate.getMinutes() : "0" + localDate.getMinutes()) : "00";
 
     let result = "" + hours + minutes + "00";
@@ -179,7 +180,7 @@ async function getcontestdetails() {
 
         console.log(data);
         alldataofongoing = data.filter(element => {
-            if (element.status === "CODING" && allowed_platforms_by_user.includes(element.site) && parseInt(element.duration) <= 2678400)
+            if (element.status === "CODING" && allowed_platforms_by_user.includes(element.site) && parseInt(element.duration) <= 1728000)
                 return element
         });
         console.log(alldataofongoing)
@@ -209,7 +210,7 @@ async function getcontestdetails() {
         outerdiv.setAttribute("style", "text-align:center")
         outerdiv.setAttribute("class", "sorrytextdiv")
         let h2 = document.createElement("H2");
-        h2.innerHTML = "SORRY ! THERE IS NO CURRENT CONTEST 😶"
+        h2.innerHTML = "SORRY ! THERE IS NO CURRENT CONTEST "
 
         h2.setAttribute("class", "sorrytext");
         outerdiv.appendChild(h2);
@@ -411,7 +412,7 @@ async function getcontestdetails() {
     async function updatecontestdetails() {
         const updated_response = await fetch(api);
         const updated_data = await updated_response.json();
-        console.log(updated_data);
+        // console.log(updated_data);   TESTING PURPOSE
 
         let updated_alldataofongoing = [];
         let updated_alldataofupcoming = [];
@@ -421,7 +422,7 @@ async function getcontestdetails() {
                 return element
         });
 
-        console.log(updated_alldataofongoing)
+        // console.log(updated_alldataofongoing)  TESTING PURPOSE
         localStorage.setItem("alldataofongoing", JSON.stringify(updated_alldataofongoing));
 
 
@@ -429,7 +430,7 @@ async function getcontestdetails() {
             if (element.status === "BEFORE" && allowed_platforms_by_user.includes(element.site) && parseInt(element.duration) <= 2678400)
                 return element
         });
-        console.log(updated_alldataofupcoming)
+        // console.log(updated_alldataofupcoming)   TESTING PURPOSE
         localStorage.setItem("alldataofupcoming", JSON.stringify(updated_alldataofupcoming));
     }
     updatecontestdetails();

@@ -7,19 +7,19 @@
     "action": {
         "default_popup": "popup.html",
         "default_icon": {
-            "16": "./img/ed.png",
-            "32": "./img/ed.png",
-            "48": "./img/ed.png",
-            "128": "./img/ed.png"
+            "16": "./img/ed2.png",
+            "32": "./img/ed2.png",
+            "48": "./img/ed2.png",
+            "128": "./img/ed2.png"
         },
         "default_title": "HELLO I AM A CALENDER"
     },
 
     "icons": {
-        "16": "./img/ee.png",
-        "32": "./img/ee.png",
-        "48": "./img/ee.png",
-        "128": "./img/ee.png"
+        "16": "./img/ed2.png",
+        "32": "./img/ed2.png",
+        "48": "./img/ed2.png",
+        "128": "./img/ed2.png"
     }
 
 }
