@@ -15,12 +15,12 @@ allcheck.forEach(item => {
 allcheck.forEach(item => {
     // console.log(item)
     item.addEventListener('click', () => {
-        console.log(item.attributes)
+        //   console.log(item.attributes)  just for debugging
         if (item.attributes.src.nodeValue == "./img/tick.png") {
             item.setAttribute("src", "./img/wrong.png");
 
             let localnamemaker = item.attributes.id.nodeValue.slice(0, -5);
-            console.log(localnamemaker)
+            //    console.log(localnamemaker)      just for debugging
             localStorage.setItem(localnamemaker, "false")
 
             let ado_allowed = JSON.parse(localStorage.getItem("alldataofongoing"));
@@ -30,27 +30,27 @@ allcheck.forEach(item => {
 
 
             let updated_ado = ado_allowed.filter(ele => {
-                let site = ele.site;
-                if (localStorage.getItem(site) === "true")
-                    return ele;
-                else
-                    ado_not_allowed.push(ele);
-            })
-            console.log(updated_ado);
-            console.log(ado_not_allowed);
+                    let site = ele.site;
+                    if (localStorage.getItem(site) === "true")
+                        return ele;
+                    else
+                        ado_not_allowed.push(ele);
+                })
+                //   console.log(updated_ado);              just for debugging
+                //   console.log(ado_not_allowed);         just for debugging
             localStorage.setItem("alldataofongoing", JSON.stringify(updated_ado));
             localStorage.setItem("ado_not_allowed", JSON.stringify(ado_not_allowed));
 
 
             let updated_adu = adu_allowed.filter(ele => {
-                let site = ele.site;
-                if (localStorage.getItem(site) === "true")
-                    return ele;
-                else
-                    adu_not_allowed.push(ele);
-            })
-            console.log(updated_adu);
-            console.log(adu_not_allowed);
+                    let site = ele.site;
+                    if (localStorage.getItem(site) === "true")
+                        return ele;
+                    else
+                        adu_not_allowed.push(ele);
+                })
+                // console.log(updated_adu);        just for debugging
+                // console.log(adu_not_allowed);        just for debugging
             localStorage.setItem("alldataofupcoming", JSON.stringify(updated_adu));
             localStorage.setItem("adu_not_allowed", JSON.stringify(adu_not_allowed));
 

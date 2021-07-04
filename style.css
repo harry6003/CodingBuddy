@@ -52,6 +52,7 @@ nav {
 }
 
 .drawer-body {
+    font-family: 'Poppins', sans-serif;
     height: 480px;
     width: 500px;
 }
@@ -367,7 +368,7 @@ img.calender-logo {
     margin: 8px 0;
     color: white;
     font-weight: bolder;
-    font-size: small;
+    font-size: larger;
     text-align: center;
 }
 

@@ -11,14 +11,14 @@ if (localStorage.getItem("CodeChef") === null && localStorage.getItem("CodeForce
     localStorage.setItem("LeetCode", "true");
     localStorage.setItem("HackerRank", "true");
 
-    console.log("all set to true first time");
+    // console.log("all set to true first time");  just for debugging
     allowed_platforms_by_user = [];
     for (var i = 0, len = localStorage.length; i < len; ++i) {
         if (localStorage.getItem(localStorage.key(i)) === "true") {
             allowed_platforms_by_user.push(localStorage.key(i));
         }
     }
-    console.log(allowed_platforms_by_user)
+    //console.log(allowed_platforms_by_user) just for debugging
 
 } else {
     allowed_platforms_by_user = [];
@@ -178,12 +178,12 @@ async function getcontestdetails() {
     const response = await fetch(api);
     const data = await response.json();
 
-    console.log(data);
+    //  console.log(data);  just for debugging
     alldataofongoing = data.filter(element => {
         if (element.status === "CODING" && allowed_platforms_by_user.includes(element.site) && parseInt(element.duration) <= 1728000)
             return element
     });
-    console.log(alldataofongoing)
+    //console.log(alldataofongoing)       just for debugging
     localStorage.setItem("alldataofongoing", JSON.stringify(alldataofongoing));
     localStorage.setItem("ado_not_allowed", JSON.stringify(ado_not_allowed));
 
@@ -191,7 +191,7 @@ async function getcontestdetails() {
         if (element.status === "BEFORE" && allowed_platforms_by_user.includes(element.site) && parseInt(element.duration) <= 2678400)
             return element
     });
-    console.log(alldataofupcoming)
+    //  console.log(alldataofupcoming)       just for debugging
     localStorage.setItem("alldataofupcoming", JSON.stringify(alldataofupcoming));
     localStorage.setItem("adu_not_allowed", JSON.stringify(adu_not_allowed));
 
