@@ -2,33 +2,13 @@ let allcheck = document.querySelectorAll('.check')
 const api = "https://kontests.net/api/v1/all";
 
 allcheck.forEach(item => {
-        let localnamemaker = item.attributes.id.nodeValue.slice(0, -5);
-        if (localStorage.getItem(localnamemaker) === "true") {
-            item.setAttribute("src", "./img/tick.png");
-        } else if (localStorage.getItem(localnamemaker) === "false") {
-            item.setAttribute("src", "./img/wrong.png");
-        }
-    })
-    // let ado = [];
-    // let adu = [];
-
-
-// async function getcontestdetails() {
-//     const response = await fetch(api);
-//     const data = await response.json();
-
-//     ado = data.filter(element => {
-//         if ((element.status === "CODING" && localStorage.getItem(element.site)) && (parseInt(element.duration) <= 2678400))
-//             return element
-//     })
-
-
-
-
-// }
-
-
-
+    let localnamemaker = item.attributes.id.nodeValue.slice(0, -5);
+    if (localStorage.getItem(localnamemaker) === "true") {
+        item.setAttribute("src", "./img/tick.png");
+    } else if (localStorage.getItem(localnamemaker) === "false") {
+        item.setAttribute("src", "./img/wrong.png");
+    }
+})
 
 
 
@@ -158,31 +138,3 @@ for (var i = 0, len = localStorage.length; i < len; ++i) {
         allowed_platforms_by_user_in_set.push(localStorage.key(i));
     }
 }
-// console.log(allowed_platforms_by_user_in_set)   TESTING PURPOSE TESTING PURPOSE
-
-// let allcheck = document.getElementsByClassName("check");
-// allcheck.addEventListnner("click",)
-
-// .forEach(item => {
-//     console.log(item);
-//     item.addEventListener('click', event => {
-//         console.log("ehe")
-//     })
-// })
-
-// document.querySelectorAll('.some-class')
-
-
-
-
-
-
-// //item.attributes.src = "./img/wrong.png"
-
-// item.removeAttribute("src");
-
-
-// var attr = document.createAttribute("src");
-// attr.value = "./img/wrong.png";
-// // var h = document.getElementsByTagName("H1")[0];
-// item.setAttributeNode(attr);
