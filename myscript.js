@@ -174,32 +174,32 @@ let alldataofupcoming = [];
 let adu_not_allowed = [];
 async function getcontestdetails() {
 
-    if (localStorage.getItem("alldataofongoing") == null && localStorage.getItem("alldataofupcoming") == null) {
-        const response = await fetch(api);
-        const data = await response.json();
+    // if (localStorage.getItem("alldataofongoing") == null && localStorage.getItem("alldataofupcoming") == null) {
+    const response = await fetch(api);
+    const data = await response.json();
 
-        console.log(data);
-        alldataofongoing = data.filter(element => {
-            if (element.status === "CODING" && allowed_platforms_by_user.includes(element.site) && parseInt(element.duration) <= 1728000)
-                return element
-        });
-        console.log(alldataofongoing)
-        localStorage.setItem("alldataofongoing", JSON.stringify(alldataofongoing));
-        localStorage.setItem("ado_not_allowed", JSON.stringify(ado_not_allowed));
+    console.log(data);
+    alldataofongoing = data.filter(element => {
+        if (element.status === "CODING" && allowed_platforms_by_user.includes(element.site) && parseInt(element.duration) <= 1728000)
+            return element
+    });
+    console.log(alldataofongoing)
+    localStorage.setItem("alldataofongoing", JSON.stringify(alldataofongoing));
+    localStorage.setItem("ado_not_allowed", JSON.stringify(ado_not_allowed));
 
-        alldataofupcoming = data.filter(element => {
-            if (element.status === "BEFORE" && allowed_platforms_by_user.includes(element.site) && parseInt(element.duration) <= 2678400)
-                return element
-        });
-        console.log(alldataofupcoming)
-        localStorage.setItem("alldataofupcoming", JSON.stringify(alldataofupcoming));
-        localStorage.setItem("adu_not_allowed", JSON.stringify(adu_not_allowed));
+    alldataofupcoming = data.filter(element => {
+        if (element.status === "BEFORE" && allowed_platforms_by_user.includes(element.site) && parseInt(element.duration) <= 2678400)
+            return element
+    });
+    console.log(alldataofupcoming)
+    localStorage.setItem("alldataofupcoming", JSON.stringify(alldataofupcoming));
+    localStorage.setItem("adu_not_allowed", JSON.stringify(adu_not_allowed));
 
 
-    } else {
-        alldataofongoing = JSON.parse(localStorage.getItem("alldataofongoing"));
-        alldataofupcoming = JSON.parse(localStorage.getItem("alldataofupcoming"));
-    }
+    // } else {
+    //     alldataofongoing = JSON.parse(localStorage.getItem("alldataofongoing"));
+    //     alldataofupcoming = JSON.parse(localStorage.getItem("alldataofupcoming"));
+    // }
 
 
 

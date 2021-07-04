@@ -51,6 +51,11 @@ nav {
     perspective: 1000px;
 }
 
+.drawer-body {
+    height: 480px;
+    width: 500px;
+}
+
 @keyframes shake {
     10%,
     90% {
@@ -307,4 +312,112 @@ img.calender-logo {
     background-color: #3a3a3a;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+
+/* app drawer */
+
+.infoo {
+    margin-top: 65px;
+}
+
+
+/* .logo-of-website {
+    margin: 0 auto;
+} */
+
+.programmming {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-top: 20px;
+}
+
+.socialplatforms-Blogs {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-top: 20px;
+    margin-bottom: 17px;
+}
+
+.single-container {
+    padding-left: 30px;
+    padding-bottom: 10px;
+}
+
+.logo-of-website {
+    text-align: center;
+}
+
+.logo-of-website a img {
+    height: 64px;
+    width: 64px;
+    padding: auto 10px;
+    transition: transform .2s;
+}
+
+.logo-of-website a img:hover {
+    transform: scale(1.2);
+}
+
+.name-of-website {
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    margin: 8px 0;
+    color: white;
+    font-weight: bolder;
+    font-size: small;
+    text-align: center;
+}
+
+.heading-of-info {
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+    font-size: 22px;
+    text-align: center;
+    background-color: #F3B604;
+}
+
+.infoo p {
+    text-align: center;
+    display: table;
+    margin: auto;
+    padding: 4px;
+    color: #303134;
+    border-radius: 10px;
+}
+
+.cses-website {
+    padding-left: 40px;
+}
+
+.cses-website a img {
+    width: 70px;
+}
+
+.linked-in-website a img {
+    width: 85px;
+}
+
+
+/* my info */
+
+.my-info {
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+    font-size: large;
+    text-align: center;
+}
+
+.myname a {
+    color: aqua;
+    text-decoration: none;
+}
+
+.mylinkedin {
+    height: 20px;
+    width: 30px;
 }
