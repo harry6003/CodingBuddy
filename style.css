@@ -339,24 +339,37 @@ img.calender-logo {
     flex-wrap: wrap;
     flex-direction: row;
     margin-top: 20px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 .single-container {
-    height: 80px;
+    /* height: 80px;
     width: 80px;
     padding-top: 10px;
     margin-bottom: 10px;
     margin-left: 18px;
-    margin-right: 10px;
+    margin-right: 10px; */
+    height: 90px;
+    width: 99px;
+    padding-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    /* margin-right: 10px; */
+    padding-bottom: 10px;
 }
 
 .single-container:hover {
-    background-color: #303134;
+    /* background-color: #303134;
     border-radius: 10px;
     margin-left: 18px;
     margin-right: 10px;
     margin-bottom: 10px;
+    padding-bottom: 10px; */
+    background-color: #303134;
+    border-radius: 10px;
+    margin-left: 10px;
+    /* margin-right: 0px; */
+    /* margin-bottom: 10px; */
     padding-bottom: 10px;
 }
 
@@ -440,15 +453,15 @@ img.calender-logo {
 
 .gfg-website .name-of-website {
     font-weight: larger;
-    margin: -1px;
     font-size: 97%;
 }
 
-.stack-overflow-website .name-of-website {
+
+/* .stack-overflow-website .name-of-website {
     font-weight: larger;
     font-size: 102%;
     margin: -1px;
-}
+} */
 
 
 /* 
