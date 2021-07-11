@@ -339,11 +339,24 @@ img.calender-logo {
     flex-wrap: wrap;
     flex-direction: row;
     margin-top: 20px;
-    margin-bottom: 17px;
+    margin-bottom: 50px;
 }
 
 .single-container {
-    padding-left: 30px;
+    height: 80px;
+    width: 80px;
+    padding-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 18px;
+    margin-right: 10px;
+}
+
+.single-container:hover {
+    background-color: #303134;
+    border-radius: 10px;
+    margin-left: 18px;
+    margin-right: 10px;
+    margin-bottom: 10px;
     padding-bottom: 10px;
 }
 
@@ -352,9 +365,9 @@ img.calender-logo {
 }
 
 .logo-of-website a img {
-    height: 64px;
-    width: 64px;
-    padding: auto 10px;
+    height: 40px;
+    width: 40px;
+    /* padding: 1px; */
     transition: transform .2s;
 }
 
@@ -367,7 +380,7 @@ img.calender-logo {
     font-family: 'Poppins', sans-serif;
     margin: 8px 0;
     color: white;
-    font-weight: bolder;
+    font-weight: 500;
     font-size: larger;
     text-align: center;
 }
@@ -385,21 +398,19 @@ img.calender-logo {
     text-align: center;
     display: table;
     margin: auto;
-    padding: 4px;
-    color: #303134;
+    padding: 7px;
+    color: #000000;
     border-radius: 10px;
 }
 
-.cses-website {
-    padding-left: 40px;
-}
+.cses-website {}
 
 .cses-website a img {
-    width: 70px;
+    width: 60px;
 }
 
 .linked-in-website a img {
-    width: 85px;
+    width: 65px;
 }
 
 
@@ -422,3 +433,26 @@ img.calender-logo {
     height: 20px;
     width: 30px;
 }
+
+#social {
+    margin-top: 10px;
+}
+
+.gfg-website .name-of-website {
+    font-weight: larger;
+    margin: -1px;
+    font-size: 97%;
+}
+
+.stack-overflow-website .name-of-website {
+    font-weight: larger;
+    font-size: 102%;
+    margin: -1px;
+}
+
+
+/* 
+.codeforces-website .name-of-website {
+    font-weight: larger;
+    font-size: 105%;
+}  */
